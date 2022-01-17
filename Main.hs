@@ -5,7 +5,7 @@ import Data.List(intercalate)
 import System.Environment(getProgName,getArgs)
 
 import Words (allWords)
-import Hint (readHints, matchHints)
+import Hint (readHints, matchesHints)
 
 main :: IO()
 main = do
@@ -23,7 +23,8 @@ main = do
       putStrLn "    - do not contain a 'k' at any place"
       putStrLn "    - contain an 'e' at the last place\n"
     else do
-      let words = filter (matchHints hints) allWords
+      let words = filter (`matchesHints` hints) allWords
       putStrLn $ intercalate "," words
       putStrLn $ show (length words) ++ " matches"
+  
 
