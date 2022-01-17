@@ -23,8 +23,8 @@ main = do
       putStrLn "    - do not contain a 'k' at any place"
       putStrLn "    - contain an 'e' at the last place\n"
     else do
-      let words = filter (`matchesHints` hints) allWords
-      putStrLn $ intercalate "," words
-      putStrLn $ show (length words) ++ " matches"
+      let myWords = filter (`matchesHints` hints) allWords
+      putStrLn $ intercalate "," myWords
+      putStrLn $ show (length myWords) ++ " matches"
   
 
