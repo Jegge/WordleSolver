@@ -28,6 +28,6 @@ matchesHints :: String -> [Hints] -> Bool
 matchesHints s hss = all (\hs -> all (matchesHint s) $ zip s hs) hss
   where 
     matchesHint :: String -> (Char, Hint) -> Bool 
-    matchesHint cs (a, (Correct b)) = a == b
+    matchesHint _  (a, (Correct b)) = a == b
     matchesHint cs (a, (NotHere b)) = a /= b && b `elem` cs
-    matchesHint cs (_, (Nowhere b)) = not $ b `elem` cs
+    matchesHint cs (_, (Nowhere b)) = b `notElem` cs
